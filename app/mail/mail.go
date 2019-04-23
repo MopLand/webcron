@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/utils"
+	"github.com/astaxie/beego/logs"
 	"time"
 )
 
@@ -35,7 +36,7 @@ func init() {
 					return
 				}
 				if err := m.Send(); err != nil {
-					beego.Error("SendMail:", err.Error())
+					logs.Error("SendMail:", err.Error())
 				}
 			}
 		}

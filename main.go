@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/lisijie/webcron/app/controllers"
 	"github.com/lisijie/webcron/app/jobs"
 	_ "github.com/lisijie/webcron/app/mail"
@@ -26,7 +27,7 @@ func main() {
 
 	// 生产环境不输出debug日志
 	if beego.AppConfig.String("runmode") == "prod" {
-		beego.SetLevel(beego.LevelInformational)
+		logs.SetLevel(logs.LevelInformational)
 	}
 	beego.AppConfig.Set("version", VERSION)
 
